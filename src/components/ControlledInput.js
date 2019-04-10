@@ -24,7 +24,7 @@ class Form extends Component {
   }
 
 
-  
+
 
 log = () => {
   console.log(this.state)
@@ -36,6 +36,7 @@ log = () => {
     this.setState({
       [e.target.name]: e.target.value
     })
+    e.persist()
     this.log()
   }
 
@@ -43,8 +44,8 @@ log = () => {
   render() {
     return (
       <form>
-        <input type="text" name="firstName" value={this.state.firstName} onChange={e => this.handleChange(e)} />
-        <input type="text" name="lastName" value={this.state.lastName} onChange={e => this.handleChange(e)}/>
+        <input type="text" name="firstName" value={this.state.firstName} onChange={this.handleChange} />
+        <input type="text" name="lastName" value={this.state.lastName} onChange={this.handleChange}/>
       </form>
     )
   }
